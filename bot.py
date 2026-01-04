@@ -4,7 +4,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 # TU TOKEN AQUÍ (reemplaza con el que te dio BotFather)
-TELEGRAM_TOKEN = '8382736754:AAHg747Y_jUHVNOldT8xE5m3HnFShlJtfCU'
+TELEGRAM_TOKEN = 'TU_TOKEN_AQUI'
 
 # Algoritmo de Luhn
 def luhn_algorithm(number):
@@ -62,11 +62,12 @@ async def main():
     print("✅ Bot en funcionamiento...")
     await app.run_polling()
 
+if __name__ = "__main__":
+    main()
+    
 # Ejecutar bot
 if name == "main":
     import asyncio
     asyncio.run(main())
 
-# Importante: reemplazas esta línea con tu token:
-
-TELEGRAM_TOKEN = '8382736754:AAHg747Y_jUHVNOldT8xE5m3HnFShlJtfCU'
+# 
