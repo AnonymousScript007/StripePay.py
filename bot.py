@@ -1,59 +1,31 @@
-import logging
-from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+{
 
-from gateway_simulator import fake_gateway
-from utils import parse_card
+  "address": "0:b113a994b5024a16719f69139328eb759596c38a25f59028b146fecdc3621dfe",
 
-TOKEN = "TU_TOKEN_AQUI"
+  "balance": 938348170836,
 
-logging.basicConfig(level=logging.INFO)
+  "last_activity": 1767672350,
 
-/start
+  "status": "active",
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-await update.message.reply_text(
-"🤖 Checker SIMULADO\n"
-"Usa:\n"
-"/check 4111111111111111|12|25|123"
-)
+  "interfaces": [
 
-/check
+    "jetton_master"
 
-async def check(update: Update, context: ContextTypes.DEFAULT_TYPE):
-user = update.effective_user
-text = update.message.text
+  ],
 
-card = parse_card(text)  
+  "name": "usdt-minter.ton",
 
-if not card:  
-    await update.message.reply_text("❌ Formato inválido")  
-    return  
+  "is_scam": false,
 
-await update.message.reply_text("⏳ Procesando (simulado)...")  
+  "memo_required": false,
 
-result = fake_gateway(card)  
+  "get_methods": [
 
-response = (  
-    f"💳 {card}\n"  
-    f"Status: {result['status']}\n"  
-    f"Response: {result['message']}\n"  
-    f"Retries: {result['retries']}\n"  
-    f"Took: {result['time']}s\n"  
-    f"User: {user.id}"  
-)  
+    "get_jetton_data"
 
-await update.message.reply_text(response)
+  ],
 
-Main
+  "is_wallet": false
 
-def main():
-app = ApplicationBuilder().token(TOKEN).build()
-
-app.add_handler(CommandHandler("start", start))  
-app.add_handler(CommandHandler("check", check))  
-
-app.run_polling()
-
-if name == "main":
-main()
+}
